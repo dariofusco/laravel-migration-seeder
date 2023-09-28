@@ -40,8 +40,16 @@
                         <td>{{ $train->orario_di_arrivo }}</td>
                         <td>{{ $train->codice_treno }}</td>
                         <td>{{ $train->numero_carrozze }}</td>
-                        <td>{{ $train->in_orario }}</td>
-                        <td>{{ $train->cancellato }}</td>
+                        @if ($train->in_orario == 1)
+                            <td>{{ $train->in_orario = 'Si' }}</td>
+                        @elseif ($train->in_orario == 0)
+                            <td>{{ $train->in_orario = 'No' }}</td>
+                        @endif
+                        @if ($train->cancellato == 1)
+                            <td>{{ $train->cancellato = 'Si' }}</td>
+                        @elseif ($train->cancellato == 0)
+                            <td>{{ $train->cancellato = 'No' }}</td>
+                        @endif
                     </tr>
                 @endforeach
             </tbody>
